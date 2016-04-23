@@ -1,0 +1,28 @@
+{
+  "name": "sock-it",
+  "version": "1.0.0",
+  "description": "Sample socket to API to socket code",
+  "main": "index.js",
+  "scripts": {
+    "test": "node_modules/.bin/mocha test/**/*.js",
+    "watch": "node_modules/.bin/mocha -w -R spec test/**/*.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "boom": "^3.1.2",
+    "hapi": "^13.3.0",
+    "most": "^0.18.8",
+    "redis": "^2.5.3",
+    "request": "^2.72.0",
+    "socket.io": "^1.4.5",
+    "socket.io-client": "^1.4.5"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^2.4.5",
+    "sinon": "^1.17.3",
+    "sinon-chai": "^2.8.0"
+  }
+}
