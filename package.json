@@ -4,8 +4,8 @@
   "description": "Sample socket to API to socket code",
   "main": "index.js",
   "scripts": {
-    "test": "node_modules/.bin/mocha test/**/*.js",
-    "watch": "node_modules/.bin/mocha -w -R spec test/**/*.js"
+    "test": "node_modules/.bin/mocha -R spec test/**/*.js",
+    "watch": "node_modules/.bin/mocha -w -R mocha-osx-reporter test/**/*.js"
   },
   "keywords": [],
   "author": "",
@@ -14,14 +14,17 @@
     "boom": "^3.1.2",
     "hapi": "^13.3.0",
     "most": "^0.18.8",
+    "ramda": "^0.21.0",
     "redis": "^2.5.3",
     "request": "^2.72.0",
     "socket.io": "^1.4.5",
-    "socket.io-client": "^1.4.5"
+    "socket.io-client": "^1.4.5",
+    "subtext": "^4.0.1"
   },
   "devDependencies": {
     "chai": "^3.5.0",
     "mocha": "^2.4.5",
+    "mocha-osx-reporter": "^0.1.2",
     "proxyquire": "^1.7.4",
     "sinon": "^1.17.3",
     "sinon-chai": "^2.8.0"

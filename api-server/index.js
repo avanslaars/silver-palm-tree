@@ -1,25 +1,22 @@
 const Hapi = require('hapi');
-const handlers = require('./handlers');
 const server = new Hapi.Server();
+server.connection({port:9001});
+
+const io = require('socket.io')(server.listener);
+const handlers = require('./handlers')(io);
+
 
 server.route({
     method: 'GET',
     path: '/{id}',
-    handler: function (request, reply) {
-        console.log('Get Request with ID: ', request.params.id);
-        // rc.get(request.params.id, function(err, data){
-        //   console.log('responding to get with', data);
-        //   reply(data);
-        // })
-    }
+    handler: handlers.selectGameById
 });
 
 server.route({
     method: 'POST',
     path: '/',
-    handler: function(request, reply){
-      console.log('API POST Recieved', request.payload);
-      // io.sockets.emit('new_SPORTSBall', request.payload)
-      reply(200)
-    }
+    handler: handlers.transmitGame
 });
+
+io.on('connection', () => console.log('Socket client connected to API server'));
+server.start(() => console.log('API Server Started at port 9001'));
