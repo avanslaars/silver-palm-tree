@@ -1,3 +1,5 @@
+'use strict';
+
 const boom = require('boom');
 const redis = require('redis');
 const normalizer = require('./normalizer');
@@ -17,7 +19,7 @@ module.exports = function loadHandlers(io){
       }
       data = JSON.parse(data);
       const normalizedData = normalizer.lowerNames(data);
-      reply(normalizedData)
+      reply(normalizedData);
     })
   }
 
@@ -35,5 +37,5 @@ module.exports = function loadHandlers(io){
   return {
     selectGameById,
     transmitGame
-  }
+  };
 }

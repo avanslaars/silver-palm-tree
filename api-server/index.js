@@ -1,10 +1,11 @@
+'use strict';
+
 const Hapi = require('hapi');
 const server = new Hapi.Server();
 server.connection({port:9001});
 
 const io = require('socket.io')(server.listener);
 const handlers = require('./handlers')(io);
-
 
 server.route({
     method: 'GET',

@@ -1,10 +1,10 @@
 'use strict';
 
-const chai = require('chai')
+const chai = require('chai');
 const sinon = require('sinon');
 const sinonChai = require('sinon-chai');
 const proxyquire = require('proxyquire');
-const mocks = require('../mocks')
+const mocks = require('../mocks');
 const assert = chai.assert;
 
 const handlers = proxyquire('../../api-server/handlers',
@@ -29,7 +29,7 @@ describe('Handlers', function() {
   beforeEach(function(done){
     sandbox = sinon.sandbox.create();
     reply = sandbox.spy();
-    idVal = '123'
+    idVal = '123';
     sampleData = {name:'sample'};
     done();
   });
@@ -117,7 +117,7 @@ describe('Handlers', function() {
       delete request.payload;
       reply = sandbox.spy();
       handlers.transmitGame(request, reply);
-      assert.calledWith(reply, mockBoom.badRequest())
+      assert.calledWith(reply, mockBoom.badRequest());
     });
 
     it('should normalize game data payload', function(){
@@ -134,11 +134,11 @@ describe('Handlers', function() {
 
     it('should reply with a 201 for success', function(){
       const codeSpy = sandbox.spy();
-      reply = function(){
+      reply = function reply(){
         return {code: codeSpy}
-      }
+      };
       handlers.transmitGame(request, reply);
       assert.calledWith(codeSpy, 201);
-    })
+    });
   });
 });

@@ -1,9 +1,11 @@
+'use strict';
+
 const Hapi = require('hapi');
 const server = new Hapi.Server();
-server.connection({port:8080})
+server.connection({port:8080});
 const io = require('socket.io')(server.listener);
 
-const handleClient = function handleClient(socket) {
+function handleClient(socket) {
   console.log('connection made... sending test record.');
   socket.emit('sportBall', {
     "id": "d807c97f-e006-440e-9720-ff535136f8b0",
@@ -20,7 +22,7 @@ const handleClient = function handleClient(socket) {
       "score": "0"
     }],
     "unixstamp": 433396800
-  })
+  });
 }
 
 io.on('connection', handleClient);

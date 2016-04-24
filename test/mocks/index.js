@@ -1,3 +1,5 @@
+'use strict';
+
 const sinon = require('sinon');
 const identity = (val) => val;
 const noop = () => undefined;

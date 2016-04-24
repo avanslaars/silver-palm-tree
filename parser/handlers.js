@@ -1,3 +1,5 @@
+'use strict';
+
 const redis = require('redis');
 const rc = redis.createClient();
 const request = require('request');
