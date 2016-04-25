@@ -4,8 +4,8 @@
   "description": "Sample socket to API to socket code",
   "main": "index.js",
   "scripts": {
-    "test": "node_modules/.bin/mocha -R spec test/**/*.js",
-    "watch": "node_modules/.bin/mocha -w -R mocha-osx-reporter test/**/*.js"
+    "test": "node_modules/.bin/mocha -R spec test/**/*.spec.js",
+    "watch": "node_modules/.bin/mocha -w -R mocha-osx-reporter test/**/*.spec.js"
   },
   "keywords": [],
   "author": "",
